@@ -50,7 +50,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm text-slate-700">
+              <div className="mt-6 rounded-2xl bg-blue-50 p-5 text-sm text-slate-700 border border-black-50">
                 <p className="font-semibold">What to include in your message</p>
                 <ul className="mt-2 space-y-1">
                   <li>• Your role and organization</li>
