@@ -4,7 +4,9 @@ export const site = {
   url: "https://thebusinessoftalk.com",
   email: "toriatolley@gmail.com",
   phone: "+1 (404) 402 8728",
-  city: "Atlanta, GA",
+  city: "Atlanta",
+  region: "GA",
+  country: "US",
   founder: {
     name: "Toria Tolley",
     title: "Award-winning journalist, media strategist, speaker, and former CNN News Anchor",

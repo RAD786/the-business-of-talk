@@ -4,7 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
-import { organizationJsonLd, personJsonLd, servicesJsonLd } from "@/lib/schema";
+import { organizationJsonLd, personJsonLd, servicesJsonLd, websiteJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.tagline,
+  keywords: [
+    "executive communication coaching",
+    "media training",
+    "crisis communications consulting",
+    "spokesperson training",
+    "presentation coaching",
+    "Atlanta media training",
+    "executive speaking coach",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -21,14 +30,14 @@ export const metadata: Metadata = {
     title: `${site.name} | High-Stakes Communication Training`,
     description: site.tagline,
     images: [
-      { url: "/og.jpg", width: 1200, height: 630, alt: `${site.name} Open Graph` },
+      { url: "/opengraph-image", width: 1200, height: 630, alt: `${site.name} Open Graph` },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | High-Stakes Communication Training`,
     description: site.tagline,
-    images: ["/og.jpg"],
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
@@ -44,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         {/* Site-wide schema */}
+        <JsonLd data={websiteJsonLd()} />
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={personJsonLd()} />
         {services.map((s, i) => (

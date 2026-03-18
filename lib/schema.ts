@@ -1,6 +1,7 @@
 import { site } from "./site";
 
 export type BreadcrumbItem = { name: string; path: string };
+export type FaqItem = { question: string; answer: string };
 
 export function organizationJsonLd() {
   return {
@@ -15,8 +16,20 @@ export function organizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressLocality: site.city,
-      addressCountry: "US",
+      addressRegion: site.region,
+      addressCountry: site.country,
     },
+    founder: {
+      "@type": "Person",
+      name: site.founder.name,
+    },
+    knowsAbout: [
+      "Executive communication coaching",
+      "Media training",
+      "Crisis communications",
+      "Spokesperson training",
+      "Presentation coaching",
+    ],
     sameAs: [
       // add later (LinkedIn company page, etc.)
     ],
@@ -34,6 +47,18 @@ export function personJsonLd() {
     sameAs: [
       "https://www.linkedin.com/in/toria-tolley-2a52112/",
     ],
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    url: site.url,
+    name: site.name,
+    description: site.tagline,
+    publisher: { "@id": `${site.url}/#business` },
   };
 }
 
@@ -64,6 +89,21 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
       position: idx + 1,
       name: item.name,
       item: `${site.url}${item.path}`,
+    })),
+  };
+}
+
+export function faqJsonLd(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
     })),
   };
 }

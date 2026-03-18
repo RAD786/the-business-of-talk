@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbJsonLd } from "@/lib/schema";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
+import { site } from "@/lib/site";
 
 const focusAreas = [
   {
@@ -21,10 +23,54 @@ const strengths = [
   { title: "Trust", subtitle: "In crisis" },
 ];
 
+const faqs = [
+  {
+    question: "Who is executive communication coaching for?",
+    answer:
+      "Executive communication coaching is designed for leaders, spokespeople, attorneys, public officials, and other high-visibility professionals who need to speak clearly and credibly under pressure.",
+  },
+  {
+    question: "Do you offer media training for interviews and press appearances?",
+    answer:
+      "Yes. The Business of Talk provides media training for television, radio, podcast, and print interviews, including message discipline, tough-question rehearsal, soundbite development, and on-camera practice.",
+  },
+  {
+    question: "Can you help with crisis communication preparation?",
+    answer:
+      "Yes. Crisis communication support includes spokesperson preparation, response planning, rehearsal, and communication coaching for high-risk or reputation-sensitive situations.",
+  },
+  {
+    question: "Do you work only in Atlanta?",
+    answer:
+      "The Business of Talk is based in Atlanta, Georgia, and works with clients in Atlanta and beyond through private coaching, group workshops, and virtual sessions.",
+  },
+];
+
+export const metadata: Metadata = {
+  title: "Executive Communication Coaching, Media Training, and Crisis Messaging",
+  description:
+    "Executive communication coaching, media training, and crisis messaging for leaders who need clarity, confidence, and control on stage, on camera, and under pressure.",
+  keywords: [
+    "executive communication coaching",
+    "media training Atlanta",
+    "crisis communications consulting",
+    "spokesperson training",
+    "presentation coaching",
+    "executive speaking coach",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${site.name} | Executive Communication Coaching and Media Training`,
+    description:
+      "Media training, executive communication coaching, and crisis messaging for leaders in Atlanta and nationwide.",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }])} />
+      <JsonLd data={faqJsonLd(faqs)} />
 
       <section className="pb-16 pt-1 md:pb-24 md:pt-3">
         <Container>
@@ -79,7 +125,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
         </Container>
       </section>
 
@@ -115,6 +160,24 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-16 md:pb-24">
+        <Container>
+          <div className="glass-panel rounded-[2.5rem] p-8 md:p-10">
+            <p className="eyebrow">Common Questions</p>
+            <h2 className="section-title mt-5">Frequently Asked Questions</h2>
+
+            <div className="mt-8 grid gap-5">
+              {faqs.map((item) => (
+                <div key={item.question} className="surface-card rounded-[1.8rem] p-6">
+                  <h3 className="text-2xl font-semibold">{item.question}</h3>
+                  <p className="mt-3 leading-8 text-slate-700">{item.answer}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

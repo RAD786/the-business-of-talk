@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,21 +28,29 @@ const coreServices = [
     title: "Executive and Public-Speaker Coaching",
     description:
       "We help leaders structure messages, tell compelling stories, command attention, and project confidence in any room.",
+    href: "/executive-communication-coaching",
+    cta: "Executive Communication Coaching",
   },
   {
     title: "Media Training",
     description:
       "Prepare for interviews, tough questions, soundbites, and live coverage with on-camera drills, message discipline, and realistic rehearsal.",
+    href: "/media-training",
+    cta: "Media Training",
   },
   {
     title: "Crisis Communication",
     description:
       "From incident response to reputation recovery, we prepare organizations to communicate with clarity, control, and credibility.",
+    href: "/crisis-communications",
+    cta: "Crisis Communications Consulting",
   },
   {
     title: "Workshops and Custom Communication Solutions",
     description:
       "We offer individual coaching, group training, corporate workshops, and tailored communication programs built around your audience, goals, and level of visibility.",
+    href: "/pricing",
+    cta: "Workshops and Pricing",
   },
 ];
 
@@ -77,6 +86,11 @@ export default function WhatWeDoPage() {
               <div key={service.title} className="surface-card ring-accent rounded-[2rem] p-7">
                 <h2 className="text-2xl font-semibold">{service.title}</h2>
                 <p className="mt-3 leading-8 text-slate-700">{service.description}</p>
+                <div className="mt-5">
+                  <Link href={service.href} className="btn-secondary px-5 py-3 text-sm">
+                    Explore {service.cta}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
