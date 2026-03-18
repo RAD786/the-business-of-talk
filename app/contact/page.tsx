@@ -11,10 +11,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+const messageChecklist = [
+  "Your role and organization",
+  "The speaking or media situation",
+  "Your timeline or deadline",
+  "Your biggest communication challenge",
+];
+
 export default function ContactPage() {
   return (
     <>
-      {/* Breadcrumb Schema */}
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -22,41 +28,44 @@ export default function ContactPage() {
         ])}
       />
 
-      <section className="py-14 md:py-20">
+      <section className="pb-16 pt-3 md:pb-24 md:pt-6">
         <Container>
-          <h1 className="text-4xl font-semibold tracking-tight">Contact</h1>
+          <p className="eyebrow">Start the Conversation</p>
+          <h1 className="section-title mt-5">Contact</h1>
 
-          <p className="mt-4 text-lg text-slate-700 max-w-2xl">
-            Tell us what you’re preparing for—keynote, media appearance, public meeting, or a crisis scenario—
-            and we’ll respond promptly.
+          <p className="lede mt-6 max-w-3xl">
+            Tell us what you are preparing for, whether it is a keynote, media
+            appearance, public meeting, or crisis scenario, and we will respond
+            promptly.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border p-6">
-              <h2 className="text-xl font-semibold">Direct Contact</h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
+            <div className="glass-panel rounded-[2.25rem] p-8">
+              <h2 className="text-2xl font-semibold">Direct Contact</h2>
 
-              <div className="mt-4 space-y-2 text-slate-700">
+              <div className="mt-5 space-y-3 text-lg leading-8 text-slate-700">
                 <p>
-                  <span className="font-medium">Email:</span>{" "}
-                  <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
+                  <span className="font-semibold text-slate-950">Email:</span>{" "}
+                  <a className="underline decoration-[var(--accent)] underline-offset-4" href={`mailto:${site.email}`}>
                     {site.email}
                   </a>
                 </p>
                 <p>
-                  <span className="font-medium">Phone:</span> {site.phone}
+                  <span className="font-semibold text-slate-950">Phone:</span> {site.phone}
                 </p>
                 <p>
-                  <span className="font-medium">Location:</span> {site.city}
+                  <span className="font-semibold text-slate-950">Location:</span> {site.city}
                 </p>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-blue-50 p-5 text-sm text-slate-700 border border-black-50">
-                <p className="font-semibold">What to include in your message</p>
-                <ul className="mt-2 space-y-1">
-                  <li>• Your role and organization</li>
-                  <li>• The speaking/media situation</li>
-                  <li>• Your deadline</li>
-                  <li>• Your biggest challenge</li>
+              <div className="surface-card mt-8 rounded-[1.8rem] p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-deep)]">
+                  What to include
+                </p>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+                  {messageChecklist.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -64,47 +73,43 @@ export default function ContactPage() {
             <form
               action="https://formspree.io/f/xojjaeww"
               method="POST"
-              className="rounded-2xl border p-6"
+              className="glass-panel rounded-[2.25rem] p-8"
             >
-              <h2 className="text-xl font-semibold">Send a message</h2>
+              <h2 className="text-2xl font-semibold">Send a message</h2>
 
-              <div className="mt-5 grid gap-4">
-                <label className="grid gap-1">
-                  <span className="text-sm font-medium">Name</span>
+              <div className="mt-6 grid gap-5">
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Name</span>
                   <input
                     name="name"
                     required
-                    className="rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-slate-200"
+                    className="rounded-2xl border border-slate-900/10 bg-white/80 px-4 py-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(199,102,53,0.16)]"
                   />
                 </label>
 
-                <label className="grid gap-1">
-                  <span className="text-sm font-medium">Email</span>
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Email</span>
                   <input
                     name="email"
                     type="email"
                     required
-                    className="rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-slate-200"
+                    className="rounded-2xl border border-slate-900/10 bg-white/80 px-4 py-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(199,102,53,0.16)]"
                   />
                 </label>
 
-                <label className="grid gap-1">
-                  <span className="text-sm font-medium">Message</span>
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Message</span>
                   <textarea
                     name="message"
                     required
                     rows={6}
-                    className="rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-slate-200"
+                    className="rounded-2xl border border-slate-900/10 bg-white/80 px-4 py-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(199,102,53,0.16)]"
                   />
                 </label>
 
-                <button className="rounded-xl bg-slate-900 px-5 py-3 text-white font-medium hover:bg-slate-800">
+                <button className="btn-primary mt-2 w-fit px-6 py-3 text-sm">
                   Send
                 </button>
-
-                <p className="text-xs text-slate-500">
-                  (Replace <span className="font-medium">YOUR_FORM_ID</span> with your Formspree endpoint when ready.)
-                </p>
               </div>
             </form>
           </div>

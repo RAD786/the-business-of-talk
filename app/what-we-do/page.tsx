@@ -11,6 +11,40 @@ export const metadata: Metadata = {
   alternates: { canonical: "/what-we-do" },
 };
 
+const serviceAreas = [
+  "Presentation coaching",
+  "Impression management for individuals and organizations",
+  "Media strategy development and implementation",
+  "Corporate leadership speaking skills",
+  "Communication style analysis",
+  "Executive employment interviews",
+  "Reputation management, including crisis planning, training, and implementation",
+  "Media training for TV, radio, print interviews, delivering bad news, Q&A, web conferencing, and teleprompter use",
+];
+
+const coreServices = [
+  {
+    title: "Executive and Public-Speaker Coaching",
+    description:
+      "We help leaders structure messages, tell compelling stories, command attention, and project confidence in any room.",
+  },
+  {
+    title: "Media Training",
+    description:
+      "Prepare for interviews, tough questions, soundbites, and live coverage with on-camera drills, message discipline, and realistic rehearsal.",
+  },
+  {
+    title: "Crisis Communication",
+    description:
+      "From incident response to reputation recovery, we prepare organizations to communicate with clarity, control, and credibility.",
+  },
+  {
+    title: "Workshops and Custom Communication Solutions",
+    description:
+      "We offer individual coaching, group training, corporate workshops, and tailored communication programs built around your audience, goals, and level of visibility.",
+  },
+];
+
 export default function WhatWeDoPage() {
   return (
     <>
@@ -21,61 +55,46 @@ export default function WhatWeDoPage() {
         ])}
       />
 
-      <section className="py-14 md:py-20">
+      <section className="pb-16 pt-3 md:pb-24 md:pt-6">
         <Container>
-          <h1 className="text-4xl font-semibold tracking-tight">
-            What We Do
-          </h1>
+          <p className="eyebrow">Services</p>
+          <h1 className="section-title mt-5">What We Do</h1>
 
-          <p className="mt-4 text-lg text-slate-700 max-w-3xl">
+          <p className="lede mt-6">
             The Business of Talk delivers practical, high-impact communication
             training for leaders who must speak clearly, confidently, and
-            credibly—especially when the stakes are high.
+            credibly, especially when the stakes are high.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border p-6">
-              <h2 className="text-xl font-semibold">
-                Executive & Public-Speaker Coaching
-              </h2>
-              <p className="mt-2 text-slate-700">
-                We help leaders structure messages, tell compelling stories,
-                command attention, and project confidence in any room.
-              </p>
-            </div>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+            Our services are designed to strengthen public image, improve
+            communication performance, support business outcomes, and build
+            corporate, professional, and personal confidence.
+          </p>
 
-            <div className="rounded-2xl border p-6">
-              <h2 className="text-xl font-semibold">
-                Media Training
-              </h2>
-              <p className="mt-2 text-slate-700">
-                Prepare for interviews, tough questions, soundbites, and live
-                coverage with on-camera drills and strategic messaging.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border p-6">
-              <h2 className="text-xl font-semibold">
-                Crisis Communication
-              </h2>
-              <p className="mt-2 text-slate-700">
-                From incident response to reputation recovery, we prepare
-                organizations to communicate with clarity and control.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border p-6">
-              <h2 className="text-xl font-semibold">
-                Venue-Hosted Training Events
-              </h2>
-              <p className="mt-2 text-slate-700">
-                Premium workshops hosted by wineries, cruise lines, and retreat
-                venues—marketed directly to their audiences.
-              </p>
-            </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {coreServices.map((service) => (
+              <div key={service.title} className="surface-card ring-accent rounded-[2rem] p-7">
+                <h2 className="text-2xl font-semibold">{service.title}</h2>
+                <p className="mt-3 leading-8 text-slate-700">{service.description}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="glass-panel rounded-[2.25rem] p-8">
+              <p className="eyebrow">Expanded Scope</p>
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight">Service Areas</h2>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {serviceAreas.map((service) => (
+                  <div key={service} className="surface-card rounded-[1.5rem] p-5">
+                    <p className="leading-7 text-slate-700">{service}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <PlaceholderImage label="Services / Training Image" />
           </div>
         </Container>

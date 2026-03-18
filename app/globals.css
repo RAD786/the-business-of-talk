@@ -1,26 +1,272 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f1e7;
+  --foreground: #172033;
+  --surface: rgba(255, 251, 246, 0.8);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border-soft: rgba(23, 32, 51, 0.1);
+  --border-strong: rgba(23, 32, 51, 0.16);
+  --accent: #c76635;
+  --accent-deep: #9a4221;
+  --ink-muted: #526078;
+  --shadow-soft: 0 24px 70px rgba(18, 26, 43, 0.12);
+  --shadow-card: 0 18px 40px rgba(18, 26, 43, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(219, 132, 85, 0.18), transparent 28rem),
+    radial-gradient(circle at top right, rgba(70, 114, 163, 0.14), transparent 24rem),
+    linear-gradient(180deg, #fbf6ef 0%, #f5efe5 46%, #f2ece3 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: 4rem;
+  right: -10rem;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(199, 102, 53, 0.18) 0%, rgba(199, 102, 53, 0) 72%);
+  filter: blur(10px);
+  animation: drift 16s ease-in-out infinite;
+}
+
+body::after {
+  left: -8rem;
+  bottom: 4rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(67, 104, 153, 0.14) 0%, rgba(67, 104, 153, 0) 72%);
+  filter: blur(18px);
+  animation: drift 20s ease-in-out infinite reverse;
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #0f172a;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+::selection {
+  background: rgba(199, 102, 53, 0.22);
+}
+
+main > section {
+  animation: rise-in 700ms ease both;
+}
+
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--accent-deep);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 2.75rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .hero-title {
+    text-wrap: balance;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 0.95;
+  }
+
+  .section-title {
+    text-wrap: balance;
+    font-size: clamp(2.3rem, 4vw, 4rem);
+    line-height: 1;
+  }
+
+  .lede {
+    max-width: 48rem;
+    color: var(--ink-muted);
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    line-height: 1.8;
+  }
+
+  .surface-card {
+    border: 1px solid var(--border-soft);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 249, 242, 0.82));
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(14px);
+  }
+
+  .surface-card:hover {
+    border-color: rgba(199, 102, 53, 0.26);
+    transform: translateY(-2px);
+    box-shadow: 0 28px 50px rgba(18, 26, 43, 0.12);
+  }
+
+  .glass-panel {
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 249, 242, 0.42));
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(20px);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #14213a 0%, #24385f 100%);
+    box-shadow: 0 18px 34px rgba(20, 33, 58, 0.18);
+    color: white;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:focus-visible {
+    background-color: var(--accent) !important;
+    background-image: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%) !important;
+    border-color: var(--accent-deep) !important;
+    color: white !important;
+    transform: translateY(-1px);
+    box-shadow: 0 24px 40px rgba(154, 66, 33, 0.24);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(23, 32, 51, 0.14);
+    background: rgba(255, 255, 255, 0.68);
+    color: #172033;
+    font-weight: 600;
+    backdrop-filter: blur(12px);
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:active,
+  .btn-secondary:focus-visible {
+    transform: translateY(-1px);
+    border-color: var(--accent-deep) !important;
+    background-color: var(--accent) !important;
+    background-image: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%) !important;
+    box-shadow: 0 20px 36px rgba(154, 66, 33, 0.18);
+    color: white !important;
+  }
+
+  .ring-accent {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ring-accent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(199, 102, 53, 0.34), rgba(67, 104, 153, 0.14));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-18px, 12px, 0) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::before,
+  body::after,
+  main > section {
+    animation: none;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    transition: none;
+  }
 }

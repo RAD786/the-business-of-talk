@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white text-slate-900">
+      <body>
         {/* Site-wide schema */}
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={personJsonLd()} />
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ))}
 
         <Nav />
-        <main>{children}</main>
+        <main className="overflow-x-hidden pb-8 pt-[72px]">{children}</main>
         <Footer />
       </body>
     </html>
