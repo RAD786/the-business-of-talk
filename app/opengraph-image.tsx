@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
+/* eslint-disable @next/next/no-img-element */
+
 export const size = {
   width: 1200,
   height: 630,
@@ -9,6 +11,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const logoUrl = `${site.url}/images/business-of-talk-logo.png`;
+
   return new ImageResponse(
     (
       <div
@@ -16,12 +20,13 @@ export default function OpenGraphImage() {
           display: "flex",
           width: "100%",
           height: "100%",
-          background:
-            "linear-gradient(135deg, #fbf6ef 0%, #f3ebdf 58%, #efe7dc 100%)",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(135deg, #fbf6ef 0%, #f3ebdf 58%, #efe7dc 100%)",
           color: "#172033",
-          padding: "64px",
+          padding: "56px",
           position: "relative",
-          fontFamily: "Georgia, serif",
+          fontFamily: "Arial, sans-serif",
         }}
       >
         <div
@@ -36,51 +41,48 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "26px",
             width: "100%",
             height: "100%",
-            borderRadius: "36px",
+            borderRadius: "42px",
             border: "1px solid rgba(23,32,51,0.08)",
-            background: "rgba(255,255,255,0.64)",
+            background: "rgba(255,255,255,0.72)",
             padding: "52px",
           }}
         >
+          <img
+            src={logoUrl}
+            alt="The Business of Talk logo"
+            width="280"
+            height="216"
+            style={{ objectFit: "contain" }}
+          />
           <div
             style={{
               display: "flex",
-              fontSize: 26,
+              textAlign: "center",
+              fontSize: 62,
               fontWeight: 700,
-              letterSpacing: 3,
+              lineHeight: 1.05,
+              maxWidth: "820px",
               textTransform: "uppercase",
-              color: "#9a4221",
+              color: "#172033",
             }}
           >
-            The Business of Talk
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-            <div style={{ fontSize: 88, lineHeight: 0.95, fontWeight: 700 }}>
-              High-stakes communication training.
-            </div>
-            <div
-              style={{
-                fontSize: 34,
-                lineHeight: 1.3,
-                color: "#42506a",
-                fontFamily: "Arial, sans-serif",
-              }}
-            >
-              Executive communication coaching, media training, and crisis messaging for leaders in Atlanta and nationwide.
-            </div>
+            High Stakes Communication Training
           </div>
           <div
             style={{
               display: "flex",
-              fontSize: 24,
+              fontSize: 30,
+              fontWeight: 600,
+              letterSpacing: 1,
               color: "#42506a",
-              fontFamily: "Arial, sans-serif",
             }}
           >
-            {site.url.replace(/^https?:\/\//, "")}
+            www.thebusinessoftalk.com
           </div>
         </div>
       </div>
