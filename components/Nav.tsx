@@ -28,10 +28,10 @@ export function Nav() {
             onClick={() => setIsOpen(false)}
           >
             <Image
-              src="/images/business-of-talk-logo.png"
+              src="/images/new-ob-tbot-logo.png"
               alt="The Business of Talk"
-              width={880}
-              height={678}
+              width={851}
+              height={440}
               className="h-12 w-auto drop-shadow-[0_10px_20px_rgba(20,33,58,0.18)] md:h-16"
               priority
             />
