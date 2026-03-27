@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ))}
 
         <Nav />
-        <main className="overflow-x-hidden pb-8 pt-[72px]">{children}</main>
+        <main className="overflow-x-hidden pb-8 pt-[104px]">{children}</main>
         <Footer />
       </body>
     </html>
