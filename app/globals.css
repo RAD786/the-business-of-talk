@@ -70,7 +70,6 @@ body::after {
 }
 
 main,
-header,
 footer {
   position: relative;
   z-index: 1;
