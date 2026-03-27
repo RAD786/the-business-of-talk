@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
@@ -75,7 +75,15 @@ export default function WhoWeWorkWithPage() {
 
           <div className="mt-14">
             <div className="glass-panel rounded-[2.25rem] p-5 md:p-6">
-              <PlaceholderImage label="Clients / Audience Image" />
+              <div className="ring-accent surface-card relative aspect-[3/2] w-full overflow-hidden rounded-[2rem]">
+                <Image
+                  src="/images/clients-audience.png"
+                  alt="Clients and audience"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(min-width: 768px) 80vw, 100vw"
+                />
+              </div>
             </div>
           </div>
         </Container>

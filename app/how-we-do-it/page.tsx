@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
@@ -59,21 +59,35 @@ export default function HowWeDoItPage() {
 
       <section className="pb-16 pt-3 md:pb-24 md:pt-6">
         <Container>
-          <p className="eyebrow">Method</p>
-          <h1 className="section-title mt-5">How We Do It</h1>
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div className="ring-accent surface-card relative aspect-[3/2] w-full overflow-hidden rounded-[2rem]">
+              <Image
+                src="/images/process-coaching-session.png"
+                alt="Process and coaching session"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+              />
+            </div>
 
-          <p className="lede mt-6">
-            Our approach is built for real-world pressure: clear messaging,
-            strong delivery, smart Q&A strategy, and practice that feels like
-            the moment you are preparing for.
-          </p>
+            <div>
+              <p className="eyebrow">Method</p>
+              <h1 className="section-title mt-5">How We Do It</h1>
 
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            We focus on the messenger as much as the message. That means
-            coaching body language, facial expression, voice, pace, and
-            gestures so every part of your communication supports the point you
-            need to make.
-          </p>
+              <p className="lede mt-6">
+                Our approach is built for real-world pressure: clear messaging,
+                strong delivery, smart Q&A strategy, and practice that feels like
+                the moment you are preparing for.
+              </p>
+
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+                We focus on the messenger as much as the message. That means
+                coaching body language, facial expression, voice, pace, and
+                gestures so every part of your communication supports the point you
+                need to make.
+              </p>
+            </div>
+          </div>
 
           <div className="mt-12 grid gap-5">
             {steps.map(([title, description], index) => (
@@ -91,7 +105,7 @@ export default function HowWeDoItPage() {
             ))}
           </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="mt-16">
             <div className="glass-panel rounded-[2.5rem] p-8">
               <p className="eyebrow">Why It Works</p>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">What Sets Us Apart</h2>
@@ -111,8 +125,6 @@ export default function HowWeDoItPage() {
                 ))}
               </div>
             </div>
-
-            <PlaceholderImage label="Process / Coaching Session Image" />
           </div>
         </Container>
       </section>

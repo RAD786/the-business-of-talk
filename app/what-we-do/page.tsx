@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
@@ -66,20 +66,34 @@ export default function WhatWeDoPage() {
 
       <section className="pb-16 pt-3 md:pb-24 md:pt-6">
         <Container>
-          <p className="eyebrow">Services</p>
-          <h1 className="section-title mt-5">What We Do</h1>
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div>
+              <p className="eyebrow">Services</p>
+              <h1 className="section-title mt-5">What We Do</h1>
 
-          <p className="lede mt-6">
-            The Business of Talk delivers practical, high-impact communication
-            training for leaders who must speak clearly, confidently, and
-            credibly, especially when the stakes are high.
-          </p>
+              <p className="lede mt-6">
+                The Business of Talk delivers practical, high-impact communication
+                training for leaders who must speak clearly, confidently, and
+                credibly, especially when the stakes are high.
+              </p>
 
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Our services are designed to strengthen public image, improve
-            communication performance, support business outcomes, and build
-            corporate, professional, and personal confidence.
-          </p>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+                Our services are designed to strengthen public image, improve
+                communication performance, support business outcomes, and build
+                corporate, professional, and personal confidence.
+              </p>
+            </div>
+
+            <div className="ring-accent surface-card relative aspect-[3/2] w-full overflow-hidden rounded-[2rem]">
+              <Image
+                src="/images/services-training.png"
+                alt="Services and training session"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+              />
+            </div>
+          </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {coreServices.map((service) => (
@@ -95,7 +109,7 @@ export default function WhatWeDoPage() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="mt-14">
             <div className="glass-panel rounded-[2.25rem] p-8">
               <p className="eyebrow">Expanded Scope</p>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">Service Areas</h2>
@@ -108,8 +122,6 @@ export default function WhatWeDoPage() {
                 ))}
               </div>
             </div>
-
-            <PlaceholderImage label="Services / Training Image" />
           </div>
         </Container>
       </section>

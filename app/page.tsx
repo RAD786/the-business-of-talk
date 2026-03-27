@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -110,9 +110,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="space-y-5 md:-mt-8">
-              <div className="glass-panel rounded-[2.25rem] p-4 md:p-5">
-                <PlaceholderImage label="Hero Image (Toria / keynote / studio)" />
+            <div className="space-y-5">
+              <div className="glass-panel mx-auto w-fit overflow-hidden rounded-[2.25rem] p-0">
+                <div className="ring-accent surface-card relative aspect-[983/1382] w-[24rem] max-w-full overflow-hidden rounded-[2rem]">
+                  <Image
+                    src="/images/toria-tolley-headshot.png"
+                    alt="Toria Tolley headshot"
+                    fill
+                    priority
+                    className="object-contain object-center"
+                    sizes="(min-width: 768px) 24rem, 100vw"
+                  />
+                </div>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
@@ -132,8 +141,15 @@ export default function HomePage() {
         <Container>
           <div className="glass-panel rounded-[2.5rem] p-8 md:p-10">
             <div className="grid gap-10 md:grid-cols-[0.92fr_1.08fr] md:items-center">
-              <PlaceholderImage label="Workshop / Coaching Session" />
-
+              <div className="ring-accent surface-card relative aspect-[3/2] w-full overflow-hidden rounded-[2rem]">
+                <Image
+                  src="/images/workshop-coaching-1.png"
+                  alt="Workshop or coaching session"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                />
+              </div>
               <div>
                 <p className="eyebrow">How It Works</p>
                 <h2 className="section-title mt-5">

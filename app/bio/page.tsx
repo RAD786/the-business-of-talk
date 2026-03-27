@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
@@ -94,10 +94,15 @@ export default function BioPage() {
 
             <div className="space-y-5">
               <div className="glass-panel rounded-[2.25rem] p-4">
-                <PlaceholderImage label="Toria Headshot" />
-              </div>
-              <div className="glass-panel rounded-[2.25rem] p-4">
-                <PlaceholderImage label="Toria On-Camera / Speaking Image" />
+                <div className="ring-accent surface-card relative aspect-[4/3] w-full overflow-hidden rounded-[2rem]">
+                  <Image
+                    src="/images/toria-july-1992.jpg"
+                    alt="Toria Tolley on camera in 1992"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
