@@ -25,10 +25,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
+  overflow-x: clip;
   background:
     radial-gradient(circle at top left, rgba(219, 132, 85, 0.18), transparent 28rem),
     radial-gradient(circle at top right, rgba(70, 114, 163, 0.14), transparent 24rem),
@@ -225,6 +227,21 @@ main > section {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    line-height: 0.98;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .lede {
+    line-height: 1.75;
   }
 }
 

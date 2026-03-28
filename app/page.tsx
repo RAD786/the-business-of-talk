@@ -111,15 +111,15 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-5">
-              <div className="glass-panel mx-auto w-fit overflow-hidden rounded-[2.25rem] p-0">
-                <div className="ring-accent surface-card relative aspect-[983/1382] w-[24rem] max-w-full overflow-hidden rounded-[2rem]">
+              <div className="glass-panel mx-auto w-full max-w-[24rem] overflow-hidden rounded-[2.25rem] p-0">
+                <div className="ring-accent surface-card relative aspect-[983/1382] w-full overflow-hidden rounded-[2rem]">
                   <Image
                     src="/images/toria-tolley-headshot.png"
                     alt="Toria Tolley headshot"
                     fill
                     priority
                     className="object-contain object-center"
-                    sizes="(min-width: 768px) 24rem, 100vw"
+                    sizes="(min-width: 768px) 24rem, (min-width: 640px) 80vw, calc(100vw - 3rem)"
                   />
                 </div>
               </div>
