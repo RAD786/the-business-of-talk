@@ -9,6 +9,7 @@ export default function sitemap() {
     "/crisis-communications",
     "/pricing",
     "/how-we-do-it",
+    "/what-sets-us-apart",
     "/who-we-work-with",
     "/bio",
     "/contact",

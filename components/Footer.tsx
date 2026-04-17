@@ -16,10 +16,8 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Pages</p>
             <ul className="mt-4 space-y-3">
               <li><Link href="/what-we-do" className="hover:text-slate-950">What We Do</Link></li>
-              <li><Link href="/pricing" className="hover:text-slate-950">Pricing</Link></li>
               <li><Link href="/how-we-do-it" className="hover:text-slate-950">How We Do It</Link></li>
-              <li><Link href="/who-we-work-with" className="hover:text-slate-950">Who We Work With</Link></li>
-              <li><Link href="/bio" className="hover:text-slate-950">Bio</Link></li>
+              <li><Link href="/bio" className="hover:text-slate-950">The Business Of Talk’s Toria Tolley</Link></li>
               <li><Link href="/contact" className="hover:text-slate-950">Contact</Link></li>
             </ul>
           </div>
@@ -27,7 +25,7 @@ export function Footer() {
           <div className="surface-card rounded-[2rem] p-7 text-sm text-slate-700">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Contact</p>
             <div className="mt-4 space-y-3">
-              <p>{site.city}</p>
+              <p>Toria Tolley</p>
               <p>{site.email}</p>
               <p>{site.phone}</p>
             </div>

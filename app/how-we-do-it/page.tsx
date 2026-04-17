@@ -11,29 +11,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/how-we-do-it" },
 };
 
-const steps = [
-  [
-    "Diagnose the moment",
-    "We define the audience, stakes, risks, and the outcome you need so training matches reality.",
-  ],
-  [
-    "Build the message",
-    "We shape your core narrative, proof points, and soundbites so you stay clear and consistent.",
-  ],
-  [
-    "Train delivery",
-    "We refine voice, pace, posture, presence, and nonverbal communication so your message lands with credibility and confidence.",
-  ],
-  [
-    "Pressure-test Q&A",
-    "We rehearse tough questions and teach techniques to stay in control and on message.",
-  ],
-  [
-    "Make it repeatable",
-    "You leave with templates, checklists, and a process you can use before every talk or interview.",
-  ],
-];
-
 const differentiators = [
   {
     title: "Real Media and Performance Experience",
@@ -89,23 +66,7 @@ export default function HowWeDoItPage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-5">
-            {steps.map(([title, description], index) => (
-              <div key={title} className="surface-card rounded-[2rem] p-7 md:grid md:grid-cols-[auto_1fr] md:gap-6">
-                <div className="mb-4 md:mb-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(199,102,53,0.14)] text-sm font-semibold uppercase tracking-[0.14em] text-[var(--accent-deep)]">
-                    0{index + 1}
-                  </div>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-semibold">{title}</h2>
-                  <p className="mt-3 leading-8 text-slate-700">{description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16">
+          <div className="mt-12">
             <div className="glass-panel rounded-[2.5rem] p-8">
               <p className="eyebrow">Why It Works</p>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">What Sets Us Apart</h2>

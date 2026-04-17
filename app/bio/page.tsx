@@ -93,14 +93,14 @@ export default function BioPage() {
             </div>
 
             <div className="space-y-5">
-              <div className="glass-panel rounded-[2.25rem] p-4">
-                <div className="ring-accent surface-card relative aspect-[4/3] w-full overflow-hidden rounded-[2rem]">
+              <div className="glass-panel mx-auto w-full max-w-[22rem] rounded-[2.25rem] p-3">
+                <div className="ring-accent surface-card relative aspect-[983/1382] w-full overflow-hidden rounded-[2rem]">
                   <Image
-                    src="/images/toria-july-1992.jpg"
-                    alt="Toria Tolley on camera in 1992"
+                    src="/images/toria-tolley-headshot.png"
+                    alt="Toria Tolley headshot"
                     fill
                     className="object-cover object-center"
-                    sizes="(min-width: 768px) 40vw, 100vw"
+                    sizes="(min-width: 768px) 22rem, 100vw"
                   />
                 </div>
               </div>

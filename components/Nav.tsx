@@ -8,10 +8,8 @@ import { Container } from "./Container";
 const links = [
   { href: "/what-we-do", label: "What We Do" },
   { href: "/how-we-do-it", label: "How We Do It" },
-  { href: "/who-we-work-with", label: "Who We Work With" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/bio", label: "Bio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/what-sets-us-apart", label: "What Sets Us Apart" },
+  { href: "/bio", label: "The Business Of Talk's Toria Tolley" },
 ];
 
 export function Nav() {
@@ -20,7 +18,7 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-900/8 bg-white/80 backdrop-blur-xl">
       <Container>
-        <div className="flex min-h-[84px] items-center justify-between gap-4 py-3 md:grid md:grid-cols-[auto_1fr_auto] md:gap-8">
+        <div className="flex min-h-[84px] items-center justify-between gap-4 py-3">
           <Link
             href="/"
             className="-ml-1 flex shrink-0 items-center"
@@ -37,19 +35,19 @@ export function Nav() {
             />
           </Link>
 
-          <nav className="hidden items-center justify-center gap-3 md:flex">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 hover:bg-[var(--accent)] hover:text-white active:bg-[var(--accent-deep)] active:text-white"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-
           <div className="flex items-center gap-3">
+            <nav className="hidden items-center gap-3 md:flex">
+              {links.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 hover:bg-[var(--accent)] hover:text-white active:bg-[var(--accent-deep)] active:text-white"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+
             <button
               type="button"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-900/10 bg-white/80 text-slate-900 hover:border-[var(--accent-deep)] hover:bg-[var(--accent)] hover:text-white active:border-[var(--accent-deep)] active:bg-[var(--accent-deep)] active:text-white md:hidden"
@@ -65,7 +63,7 @@ export function Nav() {
             </button>
 
             <Link href="/contact" className="btn-primary hidden shrink-0 whitespace-nowrap px-5 py-3 text-sm md:inline-flex">
-              Book a Consultation
+              Contact
             </Link>
           </div>
         </div>
@@ -89,7 +87,7 @@ export function Nav() {
                   className="btn-primary mt-2 px-5 py-3 text-sm"
                   onClick={() => setIsOpen(false)}
                 >
-                  Book a Consultation
+                  Contact
                 </Link>
               </nav>
             </div>

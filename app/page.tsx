@@ -6,21 +6,33 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-const focusAreas = [
-  {
-    title: "Media training",
-    description: "Interviews, soundbites, tough questions, and live-response reps.",
-  },
-  {
-    title: "Crisis messaging",
-    description: "Prepared statements, response plans, spokesperson discipline, and PR readiness.",
-  },
-];
-
 const strengths = [
   { title: "Presence", subtitle: "On stage" },
   { title: "Control", subtitle: "On camera" },
   { title: "Trust", subtitle: "In crisis" },
+];
+
+const steps = [
+  [
+    "Diagnose the moment",
+    "We define the audience, stakes, risks, and the outcome you need so training matches reality.",
+  ],
+  [
+    "Build the message",
+    "We shape your core narrative, proof points, and soundbites so you stay clear and consistent.",
+  ],
+  [
+    "Train delivery",
+    "We refine voice, pace, posture, presence, and nonverbal communication so your message lands with credibility and confidence.",
+  ],
+  [
+    "Pressure-test Q&A",
+    "We rehearse tough questions and teach techniques to stay in control and on message.",
+  ],
+  [
+    "Make it repeatable",
+    "You leave with templates, checklists, and a process you can use before every talk or interview.",
+  ],
 ];
 
 const faqs = [
@@ -89,36 +101,17 @@ export default function HomePage() {
                 other high-visibility leaders communicate with confidence on
                 stage, on camera, and under pressure.
               </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-primary px-6 py-4 text-base">
-                  Schedule a Consultation
-                </Link>
-
-                <Link href="/what-we-do" className="btn-secondary px-6 py-4 text-base">
-                  Explore Services
-                </Link>
-              </div>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                {focusAreas.map((item) => (
-                  <div key={item.title} className="surface-card ring-accent rounded-[2rem] p-6">
-                    <p className="text-lg font-semibold text-slate-950">{item.title}</p>
-                    <p className="mt-2 leading-7 text-slate-700">{item.description}</p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="space-y-5">
               <div className="glass-panel mx-auto w-full max-w-[24rem] overflow-hidden rounded-[2.25rem] p-0">
-                <div className="ring-accent surface-card relative aspect-[983/1382] w-full overflow-hidden rounded-[2rem]">
+                <div className="ring-accent surface-card relative aspect-[2/3] w-full overflow-hidden rounded-[2rem]">
                   <Image
-                    src="/images/toria-tolley-headshot.png"
-                    alt="Toria Tolley headshot"
+                    src="/images/hero.png"
+                    alt="The Business of Talk hero image"
                     fill
                     priority
-                    className="object-contain object-center"
+                    className="object-cover object-center"
                     sizes="(min-width: 768px) 24rem, (min-width: 640px) 80vw, calc(100vw - 3rem)"
                   />
                 </div>
@@ -137,7 +130,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="pb-16 md:pb-24">
         <Container>
           <div className="glass-panel rounded-[2.5rem] p-8 md:p-10">
             <div className="grid gap-10 md:grid-cols-[0.92fr_1.08fr] md:items-center">
@@ -177,6 +170,26 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-16 md:pb-24">
+        <Container>
+          <div className="grid gap-5">
+            {steps.map(([title, description], index) => (
+              <div key={title} className="surface-card rounded-[2rem] p-7 md:grid md:grid-cols-[auto_1fr] md:gap-6">
+                <div className="mb-4 md:mb-0">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(199,102,53,0.14)] text-sm font-semibold uppercase tracking-[0.14em] text-[var(--accent-deep)]">
+                    0{index + 1}
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-semibold">{title}</h2>
+                  <p className="mt-3 leading-8 text-slate-700">{description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
