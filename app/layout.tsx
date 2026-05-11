@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
-import { SiteShell } from "@/components/SiteShell";
 import { organizationJsonLd, personJsonLd, servicesJsonLd, websiteJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -59,7 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <JsonLd key={i} data={s} />
         ))}
 
-        <SiteShell>{children}</SiteShell>
+        <Nav />
+        <main className="overflow-x-hidden pb-8 pt-[104px]">{children}</main>
+        <Footer />
       </body>
     </html>
   );
